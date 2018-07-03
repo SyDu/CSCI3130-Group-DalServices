@@ -23,7 +23,7 @@ public class DalServicesActivity extends AppCompatActivity {
 
     private ListView listView;
     private ArrayAdapter<String> adapters;
-    private ArrayList<String> list,namelist,idlist;
+    private ArrayList<String> list,namelist,locatonlist,weblist,numberlist,imaList;
     private DatabaseReference databaseReference;
     private String select;
     @Override
@@ -33,9 +33,14 @@ public class DalServicesActivity extends AppCompatActivity {
         final Intent i = getIntent();
         select=i.getStringExtra("select");
         listView=(ListView) findViewById(R.id.listview1);
+        //******************************************************
         list=new ArrayList<String>();
         namelist=new ArrayList<String>();
-        idlist=new ArrayList<String>();
+        weblist=new ArrayList<String>();
+        locatonlist=new ArrayList<String>();
+        numberlist=new ArrayList<String>();
+        imaList=new ArrayList<String>();
+        //******************************************************
         adapters=new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,list);
         listView.setAdapter(adapters);
         databaseReference= FirebaseDatabase.getInstance().getReference(select);
@@ -48,8 +53,14 @@ public class DalServicesActivity extends AppCompatActivity {
                 adapters.notifyDataSetChanged();
                 String n=dataSnapshot.child("name").getValue(String.class);
                 namelist.add(n);
-                String id=dataSnapshot.child("id").getValue(String.class);
-                idlist.add(id);
+                String lo=dataSnapshot.child("loca").getValue(String.class);
+                locatonlist.add(lo);
+                String num=dataSnapshot.child("tel").getValue(String.class);
+                numberlist.add(num);
+                String web=dataSnapshot.child("web").getValue(String.class);
+                weblist.add(web);
+                String ima=dataSnapshot.child("ima").getValue(String.class);
+                imaList.add(ima);
 
 
             }
@@ -68,8 +79,14 @@ public class DalServicesActivity extends AppCompatActivity {
 
                 String n=dataSnapshot.child("name").getValue(String.class);
                 namelist.remove(n);
-                String id=dataSnapshot.child("id").getValue(String.class);
-                idlist.remove(id);
+                String lo=dataSnapshot.child("loca").getValue(String.class);
+                locatonlist.remove(lo);
+                String num=dataSnapshot.child("tel").getValue(String.class);
+                numberlist.remove(num);
+                String web=dataSnapshot.child("web").getValue(String.class);
+                weblist.add(web);
+                String ima=dataSnapshot.child("ima").getValue(String.class);
+                imaList.remove(ima);
 
 
             }
@@ -90,7 +107,11 @@ public class DalServicesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(view.getContext(),Detail.class);
                 intent.putExtra("name",namelist.get(position));
-                intent.putExtra("id",idlist.get(position));
+                intent.putExtra("lo",locatonlist.get(position));
+                intent.putExtra("ph",numberlist.get(position));
+                intent.putExtra("web",weblist.get(position));
+                intent.putExtra("ima",imaList.get(position));
+
                 view.getContext().startActivity(intent);
             }
         });

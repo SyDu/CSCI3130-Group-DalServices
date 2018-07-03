@@ -10,22 +10,83 @@
         android:id="@+id/textViewdatail"
         android:layout_width="140dp"
         android:layout_height="39dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="76dp"
-        android:text="TextView"
+        android:layout_marginEnd="122dp"
+        android:layout_marginLeft="122dp"
+        android:layout_marginRight="122dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="20dp"
+        android:text="buildingname"
         android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/detailimageView2" />
 
     <TextView
-        android:id="@+id/number_text"
+        android:id="@+id/detailnumber_text"
         android:layout_width="196dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginRight="104dp"
-        android:layout_marginTop="52dp"
-        android:text="TextView"
+        android:layout_height="22dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginLeft="94dp"
+        android:layout_marginRight="94dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="20dp"
+        android:text="phone @android:string/emptyPhoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewdatail" />
+
+    <ImageView
+        android:id="@+id/detailimageView2"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark_focused" />
+
+    <TextView
+        android:id="@+id/detailwebtextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="94dp"
+        android:layout_marginLeft="94dp"
+        android:layout_marginRight="94dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="20dp"
+        android:text="web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailnumber_text" />
+
+    <TextView
+        android:id="@+id/detailLocationtextView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="94dp"
+        android:layout_marginLeft="94dp"
+        android:layout_marginRight="94dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="20dp"
+        android:text="location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailwebtextView" />
+
+    <ImageView
+        android:id="@+id/callimaView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="79dp"
+        app:layout_constraintEnd_toStartOf="@+id/detailnumber_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailimageView2"
+        app:srcCompat="@drawable/ic_phone" />
 </android.support.constraint.ConstraintLayout>
