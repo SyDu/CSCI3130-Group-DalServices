@@ -1,12 +1,16 @@
 package com.example.group3.csci3130_group3_project;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.InputStream;
+import java.net.URL;
 
 public class Detail extends AppCompatActivity {
 
@@ -44,13 +48,46 @@ public class Detail extends AppCompatActivity {
                 makecall();
             }
         });
+        webtext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchweb();
+            }
+        });
+        //imageView.setImageResource(LoadImageFromWebOperations(ima).);
+        lotext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Detail.this, MainActivity.class);
+                intent.putExtra("address",location);
+                startActivity(intent);
+            }
+        });
+
     }
 
-    private void makecall() {
-        Intent intent = new Intent(Intent.ACTION_DIAL);
-        intent.setData(Uri.parse(phonenumber));
+    private void  searchweb()
+    {
+        Uri uri = Uri.parse( web);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
+    private void makecall() {
+        if(phonenumber.length()>8) {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse(phonenumber));
+            startActivity(intent);
+        }
+    }
 
+    public static Drawable LoadImageFromWebOperations(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(is, "src name");
+            return d;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
 }

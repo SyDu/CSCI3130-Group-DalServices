@@ -18,9 +18,9 @@ public class ServicesCardView extends AppCompatActivity {
         setContentView(R.layout.activity_services_card_view);
         ArrayList<ExItem> exItems=new ArrayList<>();
         exItems.add(new ExItem(R.drawable.ic_home,"Facilities"));
-        exItems.add(new ExItem(R.drawable.ic_home,"line2"));
-        exItems.add(new ExItem(R.drawable.ic_home,"line3"));
-        exItems.add(new ExItem(R.drawable.ic_home,"line4"));
+        exItems.add(new ExItem(R.drawable.ic_local_cafe,"Food and Beverage"));
+        exItems.add(new ExItem(R.drawable.ic_healing_black_24dp,"Health and Wellness"));
+//        exItems.add(new ExItem(R.drawable.ic_home,"line4"));
 
         mRecyclerView =findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
