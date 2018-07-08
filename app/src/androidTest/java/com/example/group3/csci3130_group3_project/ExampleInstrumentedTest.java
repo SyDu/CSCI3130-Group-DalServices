@@ -11,8 +11,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
 
 /**
@@ -24,13 +27,45 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     @Rule
     public ActivityTestRule<MainActivity> activityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
+
     @Test
-    public void opensMenu() {
-        Espresso.onView(withId(R.id.toolbar)).perform(ViewActions.click());
-        Espresso.onView(withId(R.id.nav_view)).check(matches(withId(R.id.drawer_layout)));
+    public void navigateToFacilities() throws InterruptedException {
+        Thread.sleep(7500);
+        Espresso.onView(withContentDescription("Navigate up")).perform(click());
+        Thread.sleep(1500);
+        Espresso.onView(withText("Dal Services")).perform(click());
+        Thread.sleep(1500);
+        Espresso.onView(withText("Facilities")).perform((click()));
+        Thread.sleep(1500);
+        Espresso.onView(withText("Registrar")).perform((click()));
     }
-    //@Test
-    //public void navigatesCorrect() {
-    //    Espresso.onView(withId(R.id.)).perform(ViewActions.click());
-    //}
+
+    @Test
+    public void navigateToFoodAndBeverage() throws InterruptedException {
+        Thread.sleep(7500);
+        Espresso.onView(withContentDescription("Navigate up")).perform(click());
+        Thread.sleep(1500);
+        Espresso.onView(withText("Dal Services")).perform(click());
+        Thread.sleep(1500);
+        Espresso.onView(withText("Food and Beverage")).perform((click()));
+        Thread.sleep(1500);
+        Espresso.onView(withText("Coburg Coffee")).perform((click()));
+    }
+
+    @Test
+    public void navigateToHealthAndWellness() throws InterruptedException {
+        Thread.sleep(4500);
+        Espresso.onView(withContentDescription("Navigate up")).perform(click());
+        Thread.sleep(1500);
+        Espresso.onView(withText("Dal Services")).perform(click());
+        Thread.sleep(1500);
+        Espresso.onView(withText("Health and Wellness")).perform((click()));
+        Thread.sleep(1500);
+        Espresso.onView(withText("Dalplex")).perform((click()));
+        Thread.sleep(1500);
+    }
+
+
+
+
 }
