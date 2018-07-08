@@ -29,7 +29,7 @@ public class Detail extends AppCompatActivity {
         phone = (TextView)findViewById(R.id.detailnumber_text);
         webtext = (TextView)findViewById(R.id.detailwebtextView);
         imageView = (ImageView)findViewById(R.id.detailimageView2);
-        callima = (ImageView)findViewById(R.id.callimaView);
+//        callima = (ImageView)findViewById(R.id.callimaView);
 
 
         Intent i = getIntent();
@@ -39,10 +39,14 @@ public class Detail extends AppCompatActivity {
         ima = i.getStringExtra("ima");
         web = i.getStringExtra("web");
         idtext.setText(name);
-        webtext.setText(web);
-        lotext.setText(location);
-        phone.setText(phonenumber);
-        callima.setOnClickListener(new View.OnClickListener() {
+        webtext.setText("Visit Website");
+        lotext.setText("Directions to \n" + location);
+        if (phonenumber.equals("N/A")) {
+            phone.setText("Phone not available");
+        } else {
+            phone.setText(phonenumber);
+        }
+        phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 makecall();
