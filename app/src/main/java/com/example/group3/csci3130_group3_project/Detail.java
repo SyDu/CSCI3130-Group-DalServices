@@ -67,7 +67,7 @@ public class Detail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Detail.this, MainActivity.class);
-                intent.putExtra("address",location);
+                intent.putExtra("Address",location);
                 startActivity(intent);
             }
         });
